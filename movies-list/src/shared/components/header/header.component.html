@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" class="fixed-toolbar">
+  
+  <span class="spacer"></span>
+
+  <button *ngIf="!isCartRoute()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+    aria-label="Cart" [matBadge]="cartItemCount | async" (click)="redirectToAnotherRoute()">
+    <mat-icon>add_shopping_cart</mat-icon>
+  </button>
+</mat-toolbar>

@@ -1,0 +1,36 @@
+<div class="layout">
+
+  <h1 class="padding-align">Cart</h1>
+  <div *ngIf="cartItems.length === 0">
+    <p>Your cart is empty.</p>
+  </div>
+  <!-- <div class="date-banner" id="dateBanner" *ngIf="!dateIndicatorVisible">
+    {{ currentBannerDate | dateFormat }}
+  </div> -->
+  <!-- <p id="dateIndicator">{{movies[0].date | dateFormat}}</p> -->
+  <mat-grid-list cols="2" rowHeight="550px" style="margin: 16px;" gutterSize="50px">
+    <mat-grid-tile *ngFor="let movie of cartItems" [attr.movie-date]="movie.date" style="margin-bottom: 16px;">
+      <mat-card class="example-card" style="width: 100%; height: 100%;">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ movie.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="height: 100%;">
+          <a [routerLink]="['/movies', movie._id]">
+            <img style="width: 100%; height: 300px;" mat-card-image [src]="movie.flyerFront" alt="{{ movie.title }}">
+          </a>
+          <p class="aligned">
+            <mat-icon class="blue-icon" fontSet="material-icons">location_pin</mat-icon> {{ movie.venue.name }}
+          </p>
+          <p>Starts: {{ movie.startTime | timeFormat }}</p>
+          <p>Ends: {{ movie.endTime | timeFormat }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-icon-button class="rounded-button red-button" (click)="removeFromCart(movie)">
+            <mat-icon class="white-icon">delete_forever</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

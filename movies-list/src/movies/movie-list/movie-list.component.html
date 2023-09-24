@@ -1,0 +1,49 @@
+<div class="layout">
+  <mat-form-field class="search-input">
+    <input matInput [(ngModel)]="searchTerm" (input)="filterMovies()" placeholder="Search movies" />
+  </mat-form-field>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button">
+    <mat-icon fontSet="material-icons-outlined">filter_alt</mat-icon>
+  </button>
+  <div class="padding-align aligned space">
+    <div matTooltip="Great Britain" class="tooltip-container">
+      <img src="assets/london.png" class="flag-icon">
+      <span class="country-name">Great Britain</span>
+    </div>
+    <div matTooltip="Time Range" class="tooltip-container">
+      <span class="country-name">28.11.2021 - 10.12.2021</span>
+    </div>
+  </div>
+  <h1 class="padding-align">Public Events</h1>
+  <div class="date-banner" id="dateBanner" *ngIf="!dateIndicatorVisible">
+    {{ currentBannerDate | dateFormat }}
+  </div>
+  <p id="dateIndicator">{{movies[0].date | dateFormat}}</p>
+  <mat-grid-list cols="2" rowHeight="550px" style="margin: 16px;" gutterSize="50px">
+    <mat-grid-tile *ngFor="let movie of filteredMovies" [attr.movie-date]="movie.date" style="margin-bottom: 16px;">
+      <mat-card class="example-card" style="width: 100%; height: 100%;">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ movie.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="height: 100%;">
+          <a [routerLink]="['/movies', movie._id]">
+            <img style="width: 100%; height: 300px;" mat-card-image [src]="movie.flyerFront" alt="{{ movie.title }}">
+          </a>
+          <p class="aligned">
+            <mat-icon class="blue-icon" fontSet="material-icons">location_pin</mat-icon>
+            <a [href]="'https://www.google.com/maps/search/?q=' + movie.venue.name" target="_blank">{{
+              movie.venue.name }}</a>
+          </p>
+          <p>Starts: {{ movie.startTime | timeFormat }}</p>
+          <p>Ends: {{ movie.endTime | timeFormat }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-icon-button class="rounded-button blue-button small-button" (click)="addToCart(movie)">
+            <mat-icon class="white-icon">add</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
