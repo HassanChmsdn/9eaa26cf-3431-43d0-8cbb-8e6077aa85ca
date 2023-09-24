@@ -54,17 +54,6 @@ Describe how to deploy your project to a production environment. Include any nec
 
 The application should now be running locally. Open your web browser and visit http://localhost:4200 to view the application.
 
-Usage
-Provide instructions on how to use or interact with your application. Include any relevant details about how to navigate, input data, or perform actions.
-
-Deployment
-Describe how to deploy your project to a production environment. Include any necessary steps, configurations, or commands. For example, if you are deploying to Netlify, you might include:
-
-    ```bash
-    npm run build
-    netlify deploy --prod
-    ```
-
 Built With
 Angular - The web framework used
 Angular Material - UI components
