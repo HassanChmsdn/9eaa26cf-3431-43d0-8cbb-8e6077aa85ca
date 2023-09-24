@@ -1,6 +1,7 @@
 # 9eaa26cf-3431-43d0-8cbb-8e6077aa85ca
 
-A brief description of your project.
+**Description**: A brief description of your project.
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
@@ -12,19 +13,44 @@ Before you begin, ensure you have met the following requirements:
 
 To get this project up and running on your local machine, follow these steps:
 
-1. Clone the repository:
+1. **Clone the repository:**
 
     ```bash
     git clone https://github.com/HassanChmsdn/9eaa26cf-3431-43d0-8cbb-8e6077aa85ca
+    ```
 
-Navigate to the project directory:
+2. **Navigate to the project directory:**
+
     ```bash
-    cd 9eaa26cf-3431-43d0-8cbb-8e6077aa85ca
-    cd movies-list
+    cd 9eaa26cf-3431-43d0-8cbb-8e6077aa85ca/movies-list
+    ```
 
-Install the project dependencies:
+3. **Install the project dependencies:**
+
     ```bash
     npm install
+    ```
+
+4. **Start the development server:**
+
+    ```bash
+    npm start
+    ```
+
+   The application should now be running locally. Open your web browser and visit `http://localhost:4200` to view the application.
+
+## Usage
+
+Provide instructions on how to use or interact with your application. Include any relevant details about how to navigate, input data, or perform actions.
+
+## Deployment
+
+Describe how to deploy your project to a production environment. Include any necessary steps, configurations, or commands. For example, if you are deploying to [Netlify](https://www.netlify.com/), you might include:
+
+    ```bash
+    npm run build
+    netlify deploy --prod
+    ```
 
 The application should now be running locally. Open your web browser and visit http://localhost:4200 to view the application.
 
@@ -36,6 +62,7 @@ Describe how to deploy your project to a production environment. Include any nec
     ```bash
     npm run build
     netlify deploy --prod
+    ``````
 
 Built With
 Angular - The web framework used
