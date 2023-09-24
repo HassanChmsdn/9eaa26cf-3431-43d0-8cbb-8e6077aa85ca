@@ -34,7 +34,7 @@ To get this project up and running on your local machine, follow these steps:
 4. **Start the development server:**
 
     ```bash
-    npm start
+    npm start or ng serve
     ```
 
    The application should now be running locally. Open your web browser and visit `http://localhost:4200` to view the application.
