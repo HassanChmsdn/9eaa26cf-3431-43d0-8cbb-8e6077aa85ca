@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { MovieDetailComponent } from 'src/movies/movie-detail/movie-detail.component';
 import { MovieListComponent } from 'src/movies/movie-list/movie-list.component';
 import { HeaderComponent } from 'src/shared/components/header/header.component';
 
@@ -26,6 +25,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { CartComponent } from 'src/cart/cart.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { MovieDetailComponent } from 'src/movies/movie-detail/movie-detail.component';
 
 
 

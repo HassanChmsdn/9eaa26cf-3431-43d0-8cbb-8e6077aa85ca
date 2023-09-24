@@ -1,6 +1,6 @@
 # 9eaa26cf-3431-43d0-8cbb-8e6077aa85ca
 
-**Description**: A brief description of your project.
+**Description**: It is a nice and simple way to show the events coming up
 
 ## Prerequisites
 

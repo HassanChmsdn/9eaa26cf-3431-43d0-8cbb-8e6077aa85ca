@@ -1,10 +1,10 @@
-import { Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Movie } from '../models/movie.model';
 import { MovieService } from '../services/movie.service';
 import { CartService } from '../services/cart.service';
 import { CartCountService } from '../services/cart-count.service';
-import { Observable } from 'rxjs';
-import { MatDatepicker } from '@angular/material/datepicker';
+import { Router } from '@angular/router';
+import { MovieSelectionService } from '../services/movie-selection.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -17,14 +17,13 @@ export class MovieListComponent implements OnInit {
   currentBannerDate: string = '';
   dateIndicatorVisible: boolean = false;
   cartItemCount: number = 0;
-  movies: Movie[] = [];
+  // movies: Movie[] = [];
 
   filteredMovies: Movie[] = [];
   searchTerm: string = '';
+  movies: Movie[] = [];
 
-
-
-  constructor(private movieService: MovieService, private cartService: CartService, private cartCountService: CartCountService) { }
+  constructor(private movieService: MovieService, private cartService: CartService, private cartCountService: CartCountService, private movieSelectionService: MovieSelectionService) { }
 
   ngOnInit(): void {
     this.movieService.getMovies().subscribe((movies) => {
@@ -44,12 +43,12 @@ export class MovieListComponent implements OnInit {
 
       window.addEventListener('scroll', () => {
         this.checkDateIndicatorVisibility();
-        console.log("inside oninit")
+        // console.log("inside oninit")
       });
 
       this.checkDateIndicatorVisibility();
       this.updateBannerDate();
-      console.log("after", this.currentBannerDate);
+      // console.log("after", this.currentBannerDate);
 
     });
 
@@ -60,8 +59,6 @@ export class MovieListComponent implements OnInit {
     });
 
   }
-
-
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: any): void {
@@ -77,10 +74,10 @@ export class MovieListComponent implements OnInit {
   }
 
   private updateBannerDate(): void {
-    console.log("inside");
+    // console.log("inside");
 
     const movieElements = document.querySelectorAll('[movie-date]');
-    console.log("inside2", movieElements);
+    // console.log("inside2", movieElements);
 
     for (let i = 0; i < movieElements.length; i++) {
       const movieElement = movieElements[i];
@@ -118,4 +115,8 @@ export class MovieListComponent implements OnInit {
       this.filteredMovies = this.movies;
     }
   }
+  onMovieClick(movie: Movie) {
+    this.movieSelectionService.setSelectedMovie(movie);
+  }
+
 }

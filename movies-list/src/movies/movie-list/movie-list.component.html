@@ -27,7 +27,7 @@
           <mat-card-title>{{ movie.title }}</mat-card-title>
         </mat-card-header>
         <mat-card-content style="height: 100%;">
-          <a [routerLink]="['/movies', movie._id]">
+          <a [routerLink]="['/movies', movie._id]" (click)="onMovieClick(movie)">
             <img style="width: 100%; height: 300px;" mat-card-image [src]="movie.flyerFront" alt="{{ movie.title }}">
           </a>
           <p class="aligned">

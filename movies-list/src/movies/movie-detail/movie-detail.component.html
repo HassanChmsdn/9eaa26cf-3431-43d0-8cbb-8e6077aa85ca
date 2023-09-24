@@ -1,3 +1,21 @@
-<p>
-  movie-detail works!
-</p>
+<div *ngIf="loaded && selectedMovie" class="selectedMovie-detail">
+  <mat-card class="example-card" style="width: 100%; height: 100%;">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ safeAccess(selectedMovie, 'title') }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="height: 100%;">
+      <img style="width: 100%; height: 300px;" mat-card-image [src]="safeAccess(selectedMovie, 'flyerFront')"
+        alt="{{ safeAccess(selectedMovie, 'title') }}">
+      <p class="aligned">
+        <mat-icon class="blue-icon" fontSet="material-icons">location_pin</mat-icon>
+        {{
+        safeAccess(selectedMovie?.venue, 'name') }}
+      </p>
+      <p>Starts: {{ safeAccess(selectedMovie, 'startTime') | timeFormat }}</p>
+      <p>Ends: {{ safeAccess(selectedMovie, 'endTime') | timeFormat }}</p>
+      <p>Attending: {{ safeAccess(selectedMovie, 'attending') }}</p>
+      Artists:<p *ngFor="let artist of safeAccess(selectedMovie, 'artists')"> {{artist.name}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
