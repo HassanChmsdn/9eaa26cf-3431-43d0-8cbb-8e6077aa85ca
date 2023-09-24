@@ -59,10 +59,11 @@ Provide instructions on how to use or interact with your application. Include an
 
 Deployment
 Describe how to deploy your project to a production environment. Include any necessary steps, configurations, or commands. For example, if you are deploying to Netlify, you might include:
+
     ```bash
     npm run build
     netlify deploy --prod
-    ``````
+    ```
 
 Built With
 Angular - The web framework used
